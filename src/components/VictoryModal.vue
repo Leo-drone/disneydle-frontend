@@ -7,8 +7,8 @@
 
     <div class="victory-modal">
       <div class="modal-content">
-        <h2 class="victory-title">VICTOIRE ! </h2>
-        <p class="victory-subtitle">Tu as trouvé <strong>{{ characterName }}</strong> en {{ attempts }} essai{{ attempts > 1 ? 's' : '' }} !</p>
+        <h2 class="victory-title">{{ t('victory.title') }}</h2>
+        <p class="victory-subtitle">{{ t('victory.subtitle', { name: characterName, count: attempts }, attempts) }}</p>
 
         <!-- Carte Personnage - Style identique à l'Album -->
         <div class="card-showcase">
@@ -38,7 +38,7 @@
 
         <!-- Résumé des tentatives avec grille stylée -->
         <div class="score-recap">
-          <p class="recap-title">Résumé</p>
+          <p class="recap-title">{{ t('victory.summary') }}</p>
           <div class="recap-grid">
             <div v-for="(cells, idx) in guessStatusGrid" :key="idx" class="recap-row">
               <span class="attempt-num">{{ idx + 1 }}</span>
@@ -58,18 +58,20 @@
           </div>
         </div>
         
-        <p class="collection-msg">Ajouté à ton album !</p>
+        <p class="collection-msg">{{ t('victory.addedToAlbum') }}</p>
 
         <!-- Streak -->
         <div v-if="gameStore.streak.currentStreak > 0" class="streak-section">
-          <span class="streak-icon">🔥</span>
+            <span class="streak-icon">
+              <img src="/streak-flame.svg" alt="Streak" width="22" height="22" />
+            </span>
           <span class="streak-value">{{ gameStore.streak.currentStreak }}</span>
-          <span class="streak-label">jour{{ gameStore.streak.currentStreak > 1 ? 's' : '' }} de suite</span>
+          <span class="streak-label">{{ t('victory.streakLabel', gameStore.streak.currentStreak) }}</span>
         </div>
 
         <!-- Compte à rebours prochain puzzle -->
         <div class="countdown-section">
-          <span class="countdown-label">Prochain personnage dans</span>
+          <span class="countdown-label">{{ t('victory.countdownLabel') }}</span>
           <div class="countdown-timer">
             <div class="countdown-unit">
               <span class="countdown-number">{{ countdown.hours }}</span>
@@ -94,7 +96,7 @@
                 {{ shareText }}
             </button>
             <button class="close-btn" @click="$emit('close')">
-                Continuer
+                {{ t('victory.continue') }}
             </button>
         </div>
       </div>
@@ -104,8 +106,11 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useGameStore } from '../stores/game'
 import { getCharacterCard } from '../utils/characterImage'
+
+const { t } = useI18n()
 
 const props = defineProps<{
     show: boolean,
@@ -115,7 +120,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['close'])
 const gameStore = useGameStore()
-const shareText = ref('Partager mon score ')
+const shareText = ref(t('victory.share'))
 const imageError = ref(false)
 
 // --- COUNTDOWN ---
@@ -489,11 +494,11 @@ const emojiLines = computed(() => {
 
 const shareResult = async () => {
     let text = ` Disneydle - ${props.characterName}\n`
-    text += ` Trouvé en ${props.attempts} essai${props.attempts > 1 ? 's' : ''} !\n`
+    text += ` ${t('victory.shareText', { id: gameStore.puzzle?.id || '?', count: props.attempts }, props.attempts)}\n`
     
     // Ajouter la streak si > 0
     if (gameStore.streak.currentStreak > 0) {
-      text += `🔥 Streak : ${gameStore.streak.currentStreak} jour${gameStore.streak.currentStreak > 1 ? 's' : ''}\n`
+      text += `🔥 Streak : ${gameStore.streak.currentStreak} ${t('victory.streakLabel', gameStore.streak.currentStreak)}\n`
     }
     text += '\n'
 
@@ -505,18 +510,17 @@ const shareResult = async () => {
 
     try {
         await navigator.clipboard.writeText(text)
-        shareText.value = 'Copié !'
-        setTimeout(() => { shareText.value = 'Partager mon score ' }, 2500)
+        shareText.value = t('victory.shareCopied')
+        setTimeout(() => { shareText.value = t('victory.share') }, 2500)
     } catch (err) {
         console.error('Erreur copie', err)
-        // Fallback : ouvrir une popup de partage native si dispo
         try {
             await navigator.share({ text })
-            shareText.value = 'Partagé ! '
+            shareText.value = t('victory.shareCopied')
         } catch {
-            shareText.value = 'Erreur de copie '
+            shareText.value = t('common.error')
         }
-        setTimeout(() => { shareText.value = 'Partager mon score' }, 2500)
+        setTimeout(() => { shareText.value = t('victory.share') }, 2500)
     }
 }
 </script>

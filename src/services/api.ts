@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getLocale } from '@/i18n'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api'
 
@@ -7,6 +8,13 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+})
+
+// Intercepteur : ajoute automatiquement ?lang= à chaque requête
+api.interceptors.request.use((config) => {
+  const lang = getLocale()
+  config.params = { ...config.params, lang }
+  return config
 })
 
 export interface Character {

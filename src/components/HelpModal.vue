@@ -4,7 +4,7 @@
       <div class="help-modal">
         <!-- Header -->
         <div class="help-header">
-          <h2 class="help-title">Comment jouer</h2>
+          <h2 class="help-title">{{ t('help.title') }}</h2>
           <button class="help-close-btn" @click="handleClose">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -14,20 +14,14 @@
         <div class="help-content">
           <!-- Objectif -->
           <section class="help-section">
-            <h3 class="help-section-title">Objectif</h3>
-            <p class="help-text">
-              Devinez le <strong>personnage Disney ou Pixar</strong> du jour.
-              Tapez un nom dans la barre de recherche et validez pour soumettre votre proposition.
-            </p>
+            <h3 class="help-section-title">{{ t('help.objectiveTitle') }}</h3>
+            <p class="help-text">{{ t('help.objectiveText') }}</p>
           </section>
 
           <!-- Colonnes -->
           <section class="help-section">
-            <h3 class="help-section-title">Les categories</h3>
-            <p class="help-text">
-              Chaque proposition affiche une ligne de 9 colonnes.
-              Chaque colonne compare votre personnage avec la solution :
-            </p>
+            <h3 class="help-section-title">{{ t('help.categoriesTitle') }}</h3>
+            <p class="help-text">{{ t('help.categoriesIntro') }}</p>
             <div class="help-categories">
               <div class="help-category-item" v-for="col in columns" :key="col.name">
                 <div class="help-category-header">
@@ -41,24 +35,24 @@
 
           <!-- Code couleur -->
           <section class="help-section">
-            <h3 class="help-section-title">Code couleur</h3>
+            <h3 class="help-section-title">{{ t('help.colorTitle') }}</h3>
             <div class="help-colors">
               <div class="help-color-row">
                 <div class="help-color-box correct"></div>
                 <div class="help-color-desc">
-                  <strong>Vert</strong> &mdash; La valeur est identique au personnage mystere.
+                  <strong>{{ t('help.colorGreen') }}</strong> &mdash; {{ t('help.colorGreenDesc') }}
                 </div>
               </div>
               <div class="help-color-row">
                 <div class="help-color-box partial"></div>
                 <div class="help-color-desc">
-                  <strong>Orange</strong> &mdash; Partiellement correct (ex : meme film mais pas le bon personnage, ou valeur proche pour l'annee).
+                  <strong>{{ t('help.colorOrange') }}</strong> &mdash; {{ t('help.colorOrangeDesc') }}
                 </div>
               </div>
               <div class="help-color-row">
                 <div class="help-color-box incorrect"></div>
                 <div class="help-color-desc">
-                  <strong>Rouge</strong> &mdash; Aucun rapport avec la reponse.
+                  <strong>{{ t('help.colorRed') }}</strong> &mdash; {{ t('help.colorRedDesc') }}
                 </div>
               </div>
             </div>
@@ -66,37 +60,29 @@
 
           <!-- Indices bonus -->
           <section class="help-section">
-            <h3 class="help-section-title">Indices bonus</h3>
-            <p class="help-text">
-              Apres plusieurs tentatives, des <strong>indices supplementaires</strong> se debloquent automatiquement :
-            </p>
+            <h3 class="help-section-title">{{ t('help.hintsTitle') }}</h3>
+            <p class="help-text">{{ t('help.hintsIntro') }}</p>
             <ul class="help-list">
-              <li><strong>Image floue</strong> &mdash; une silhouette du personnage (apres 3 essais)</li>
-              <li><strong>Phrase</strong> &mdash; une description de son role (apres 5 essais)</li>
-              <li><strong>Citation</strong> &mdash; une replique celebre (apres 7 essais)</li>
+              <li>{{ t('help.hintBlurred') }}</li>
+              <li>{{ t('help.hintPhrase') }}</li>
+              <li>{{ t('help.hintQuote') }}</li>
             </ul>
-            <p class="help-text help-text-small">
-              Cliquez sur la carte correspondante pour reveler l'indice.
-            </p>
+            <p class="help-text help-text-small">{{ t('help.hintsClickTip') }}</p>
           </section>
 
           <!-- Streak & Album -->
           <section class="help-section">
-            <h3 class="help-section-title">Streak et Collection</h3>
+            <h3 class="help-section-title">{{ t('help.streakTitle') }}</h3>
             <div class="help-features">
               <div class="help-feature">
                 <img src="/streak-flame.svg" alt="" width="20" height="20" class="help-feature-icon" />
-                <p class="help-text">
-                  Gagnez chaque jour pour maintenir votre <strong>streak</strong> (serie de victoires consecutives).
-                </p>
+                <p class="help-text">{{ t('help.streakText') }}</p>
               </div>
               <div class="help-feature">
                 <span class="help-feature-emoji">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 </span>
-                <p class="help-text">
-                  Chaque personnage trouve est ajoute a votre <strong>album</strong> de collection.
-                </p>
+                <p class="help-text">{{ t('help.collectionText') }}</p>
               </div>
             </div>
           </section>
@@ -104,7 +90,7 @@
 
         <!-- Footer -->
         <div class="help-footer">
-          <button class="help-play-btn" @click="handleClose">C'est parti !</button>
+          <button class="help-play-btn" @click="handleClose">{{ t('help.play') }}</button>
         </div>
       </div>
     </div>
@@ -112,55 +98,31 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const emit = defineEmits(['close'])
 
-const columns = [
-  {
-    name: 'Personnage',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>',
-    desc: 'Le nom du personnage proposé (ex : Elsa, Woody, ...)',
-  },
-  {
-    name: 'Film',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 7h5"/><path d="M17 17h5"/></svg>',
-    desc: 'Le film dans lequel le personnage apparaît pour la première fois (ex : Le Roi Lion, Ratatouille, ...)',
-  },
-  {
-    name: 'Studio',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
-    desc: 'Le studio qui a réalisé le film (ex : Disney ou Pixar)',
-  },
-  {
-    name: 'Espèce',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10c-2 0-3-1-3-3 0-1.7 1.3-3 3-3s3 1.3 3 3c0 2-1 3-3 3z"/><path d="M6.5 7C5.1 7 4 5.9 4 4.5S5.1 2 6.5 2 9 3.1 9 4.5"/><path d="M17.5 7c1.4 0 2.5-1.1 2.5-2.5S18.9 2 17.5 2 15 3.1 15 4.5"/><path d="M12 10c4 0 7 2.7 7 6v2H5v-2c0-3.3 3-6 7-6z"/></svg>',
-    desc: "L'espèce du personnage (ex : Humain, Animal, Créature magique, Objet/Robot, Monstre/Alien)",
-  },
-  {
-    name: 'Rôle',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
-    desc: 'Le rôle du personnage (ex : Héros, Méchant, Acolyte)',
-  },
-  {
-    name: 'Genre',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>',
-    desc: 'Le genre du personnage (ex : Masculin, Féminin, Neutre)',
-  },
-  {
-    name: 'Année de sortie',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>',
-    desc: "L'année de sortie du film au US. Une flèche indique plus ancien ou plus récent. (ex: 2016, 1999, ...)",
-  },
-  {
-    name: 'Trait de Personnalité',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
-    desc: 'La personnalité du personnage le décrivant le mieux (ex : Courageux, Malicieux, Loyal)',
-  },
-  {
-    name: 'Couleur Caractéristique',
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12c0 2 1 3.5 3 3.5h1.5c1.1 0 2 .9 2 2 0 .6-.2 1-.5 1.4-.5.5-.5 1.2-.5 1.6 0 .8.7 1.5 1.5 1.5z"/></svg>',
-    desc: 'La ou les couleurs principales définissant le personnage (ex : Bleu, Rouge, Jaune)',
-  },
+const columnDefs = [
+  { key: 'character', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>' },
+  { key: 'movie', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 7h5"/><path d="M17 17h5"/></svg>' },
+  { key: 'studio', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>' },
+  { key: 'species', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10c-2 0-3-1-3-3 0-1.7 1.3-3 3-3s3 1.3 3 3c0 2-1 3-3 3z"/><path d="M6.5 7C5.1 7 4 5.9 4 4.5S5.1 2 6.5 2 9 3.1 9 4.5"/><path d="M17.5 7c1.4 0 2.5-1.1 2.5-2.5S18.9 2 17.5 2 15 3.1 15 4.5"/><path d="M12 10c4 0 7 2.7 7 6v2H5v-2c0-3.3 3-6 7-6z"/></svg>' },
+  { key: 'role', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>' },
+  { key: 'gender', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>' },
+  { key: 'year', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>' },
+  { key: 'personality', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' },
+  { key: 'color', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12c0 2 1 3.5 3 3.5h1.5c1.1 0 2 .9 2 2 0 .6-.2 1-.5 1.4-.5.5-.5 1.2-.5 1.6 0 .8.7 1.5 1.5 1.5z"/></svg>' },
 ]
+
+const columns = computed(() =>
+  columnDefs.map(col => ({
+    name: t(`columns.${col.key}`),
+    icon: col.icon,
+    desc: t(`helpCategories.${col.key}`),
+  }))
+)
 
 function handleClose() {
   localStorage.setItem('disneydle_help_seen', 'true')

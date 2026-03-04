@@ -1,77 +1,53 @@
 <template>
   <div class="privacy-container">
-    <router-link to="/" class="back-link">← Retour au jeu</router-link>
-    <h1>Politique de confidentialité</h1>
-    <p class="last-update">Dernière mise à jour : 4 mars 2026</p>
+    <router-link to="/" class="back-link">{{ t('common.back') }}</router-link>
+    <h1>{{ t('privacy.title') }}</h1>
+    <p class="last-update">{{ t('privacy.lastUpdate') }}</p>
 
-    <h2>1. Présentation</h2>
-    <p>
-      Disneydle est un jeu en ligne gratuit où vous devinez un personnage Disney ou Pixar chaque jour.
-      Ce projet est indépendant et n'est ni affilié, ni soutenu par The Walt Disney Company.
-      Votre vie privée est importante : nous collectons le strict minimum pour faire fonctionner le jeu.
-    </p>
+    <h2>{{ t('privacy.s1Title') }}</h2>
+    <p>{{ t('privacy.s1Text') }}</p>
 
-    <h2>2. Ce qui reste sur votre appareil</h2>
-    <p>
-      Votre progression est sauvegardée directement dans votre navigateur.
-      Ces informations ne quittent jamais votre appareil :
-    </p>
+    <h2>{{ t('privacy.s2Title') }}</h2>
+    <p>{{ t('privacy.s2Text') }}</p>
     <ul>
-      <li>Vos tentatives et l'état de la partie en cours</li>
-      <li>Vos statistiques (parties jouées, victoires, nombre d'essais)</li>
-      <li>Votre série de victoires consécutives</li>
-      <li>Votre collection de personnages trouvés</li>
+      <li>{{ t('privacy.s2li1') }}</li>
+      <li>{{ t('privacy.s2li2') }}</li>
+      <li>{{ t('privacy.s2li3') }}</li>
+      <li>{{ t('privacy.s2li4') }}</li>
     </ul>
-    <p>
-      Vous pouvez les supprimer à tout moment en effaçant les données de navigation de votre navigateur.
-    </p>
+    <p>{{ t('privacy.s2Footer') }}</p>
 
-    <h2>3. Ce que nous savons de vous</h2>
-    <p>
-      Très peu de choses. Il n'y a <strong>aucun compte utilisateur</strong> sur Disneydle.
-      Nous enregistrons uniquement des chiffres globaux et anonymes pour savoir combien de personnes jouent chaque jour et combien trouvent la bonne réponse.
-      Ces chiffres ne permettent pas de vous identifier.
-    </p>
+    <h2>{{ t('privacy.s3Title') }}</h2>
+    <p>{{ t('privacy.s3Text') }}</p>
 
-    <h2>4. Publicité et pistage</h2>
-    <p>
-      Il n'y a <strong>aucune publicité</strong> sur Disneydle.
-      Nous n'utilisons <strong>aucun outil de suivi</strong> (pas de Google Analytics, pas de trackers, pas de cookies publicitaires).
-      Personne ne suit votre activité sur ce site.
-    </p>
+    <h2>{{ t('privacy.s4Title') }}</h2>
+    <p>{{ t('privacy.s4Text') }}</p>
 
-    <h2>5. Partage avec des tiers</h2>
-    <p>
-      Nous ne vendons, ne partageons et ne transmettons aucune information à qui que ce soit.
-    </p>
+    <h2>{{ t('privacy.s5Title') }}</h2>
+    <p>{{ t('privacy.s5Text') }}</p>
 
-    <h2>6. Sécurité</h2>
-    <p>
-      La connexion au site est sécurisée et chiffrée. Nous mettons en place des protections
-      pour empêcher les abus et garantir le bon fonctionnement du jeu.
-    </p>
+    <h2>{{ t('privacy.s6Title') }}</h2>
+    <p>{{ t('privacy.s6Text') }}</p>
 
-    <h2>7. Vos droits</h2>
-    <p>
-      Comme nous ne stockons aucune donnée personnelle sur nos serveurs, il n'y a rien à demander,
-      modifier ou supprimer de notre côté. Vos statistiques et votre collection sont entièrement
-      sous votre contrôle dans votre navigateur.
-    </p>
+    <h2>{{ t('privacy.s7Title') }}</h2>
+    <p>{{ t('privacy.s7Text') }}</p>
 
-    <h2>8. Propriété intellectuelle</h2>
-    <p>
-      Disneydle est un projet indépendant à but non commercial. Tous les noms, images et
-      personnages Disney et Pixar appartiennent à The Walt Disney Company.
-      Ce site peut être retiré à tout moment sur demande de leur part.
-    </p>
+    <h2>{{ t('privacy.s8Title') }}</h2>
+    <p>{{ t('privacy.s8Text') }}</p>
 
-    <h2>9. Contact</h2>
+    <h2>{{ t('privacy.s9Title') }}</h2>
     <p>
-      Pour toute question, vous pouvez nous écrire à :
+      {{ t('privacy.s9Text') }}
       <a href="mailto:contact@disneydle.fr">contact@disneydle.fr</a>
     </p>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .privacy-container {

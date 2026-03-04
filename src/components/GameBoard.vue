@@ -1,6 +1,9 @@
 <template>
   <div class="game-container">
 
+    <!-- Sélecteur de langue en haut à gauche -->
+    <LangSwitcher />
+
     <header class="game-header">
       <!-- Zone Titre & Logo -->
       <div class="disney-logo-wrapper">
@@ -84,22 +87,22 @@
        <!-- Bouton Album (Intégré sous le titre à droite ou flottant) -->
        <div class="header-actions">
         <!-- Streak -->
-        <div class="streak-badge" :class="{ 'streak-active': gameStore.streak.currentStreak > 0 }" :title="`Record : ${gameStore.streak.maxStreak} jour${gameStore.streak.maxStreak > 1 ? 's' : ''}`">
+        <div class="streak-badge" :class="{ 'streak-active': gameStore.streak.currentStreak > 0 }" :title="t('header.streakRecord', { count: gameStore.streak.maxStreak }, gameStore.streak.maxStreak)">
           <img src="/streak-flame.svg" alt="Streak" class="streak-flame" width="22" height="22" />
           <span class="streak-count">{{ gameStore.streak.currentStreak }}</span>
         </div>
         <!-- Bouton Aide -->
-        <button @click="showHelp = true" class="icon-btn tooltipped" aria-label="Aide" title="Comment jouer">
+        <button @click="showHelp = true" class="icon-btn tooltipped" aria-label="Aide" :title="t('header.help')">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         </button>
         <!-- Bouton Reset déplacé ici aussi pour regrouper les actions -->
-        <button @click="resetGame" class="icon-btn tooltipped" aria-label="Nouvelle Partie" title="Nouvelle Partie">
+        <button @click="resetGame" class="icon-btn tooltipped" aria-label="Nouvelle Partie" :title="t('header.reset')">
            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
         </button>
-        <button @click="showStats = true" class="icon-btn tooltipped" aria-label="Statistiques" title="Statistiques">
+        <button @click="showStats = true" class="icon-btn tooltipped" aria-label="Statistiques" :title="t('header.stats')">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
         </button>
-        <button @click="showAlbum = true" class="icon-btn tooltipped" aria-label="Mon Album" title="Mon Album">
+        <button @click="showAlbum = true" class="icon-btn tooltipped" :aria-label="t('header.album')" :title="t('header.album')">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         </button>
       </div>
@@ -109,8 +112,8 @@
     <!-- Panneau d'indices -->
     <div v-if="hasAnyHint" class="hints-panel">
       <div class="hints-header">
-        <span class="hints-label">Indices</span>
-        <span class="hints-subtitle">— cliquez pour révéler —</span>
+        <span class="hints-label">{{ t('hints.title') }}</span>
+        <span class="hints-subtitle">{{ t('hints.subtitle') }}</span>
       </div>
 
       <div class="hints-cards">
@@ -125,7 +128,7 @@
             <div class="hint-card-front">
               <div class="hint-card-tier">3</div>
               <svg class="hint-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-              <span class="hint-card-name">Image</span>
+              <span class="hint-card-name">{{ t('hints.image') }}</span>
             </div>
             <div class="hint-card-back">
               <div class="hint-blurred-wrapper">
@@ -151,7 +154,7 @@
             <div class="hint-card-front">
               <div class="hint-card-tier">6</div>
               <svg class="hint-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              <span class="hint-card-name">Description</span>
+              <span class="hint-card-name">{{ t('hints.description') }}</span>
             </div>
             <div class="hint-card-back">
               <div class="hint-card-back-text">
@@ -172,7 +175,7 @@
             <div class="hint-card-front">
               <div class="hint-card-tier">9</div>
               <svg class="hint-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              <span class="hint-card-name">Citation</span>
+              <span class="hint-card-name">{{ t('hints.quote') }}</span>
             </div>
             <div class="hint-card-back">
               <div class="hint-card-back-text hint-card-back-quote">
@@ -197,15 +200,15 @@
     <!-- Tableau des catégories -->
     <div class="categories-table">
       <div class="category-header">
-        <div class="category-cell character-col">Personnage</div>
-        <div class="category-cell">Film</div>
-        <div class="category-cell">Studio</div>
-        <div class="category-cell">Espèce</div>
-        <div class="category-cell">Rôle</div>
-        <div class="category-cell">Genre</div>
-        <div class="category-cell">Année du film</div>
-        <div class="category-cell">Trait de Personnalité</div>
-        <div class="category-cell">Couleur(s) Caractéristique(s)</div>
+        <div class="category-cell character-col">{{ t('columns.character') }}</div>
+        <div class="category-cell">{{ t('columns.movie') }}</div>
+        <div class="category-cell">{{ t('columns.studio') }}</div>
+        <div class="category-cell">{{ t('columns.species') }}</div>
+        <div class="category-cell">{{ t('columns.role') }}</div>
+        <div class="category-cell">{{ t('columns.gender') }}</div>
+        <div class="category-cell">{{ t('columns.year') }}</div>
+        <div class="category-cell">{{ t('columns.personality') }}</div>
+        <div class="category-cell">{{ t('columns.color') }}</div>
       </div>
       <div class="category-separator"></div>
       
@@ -280,15 +283,15 @@
       <div class="legend">
         <div class="legend-item">
           <div class="legend-box correct"></div>
-          <span>Correct</span>
+          <span>{{ t('legend.correct') }}</span>
         </div>
         <div class="legend-item">
           <div class="legend-box partial"></div>
-          <span>Partiellement Correct</span>
+          <span>{{ t('legend.partial') }}</span>
         </div>
         <div class="legend-item">
           <div class="legend-box incorrect"></div>
-          <span>Incorrect</span>
+          <span>{{ t('legend.incorrect') }}</span>
         </div>
       </div>
     </div>
@@ -315,6 +318,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useGameStore } from '../stores/game'
 import { apiService, type Character } from '../services/api' 
 import CharacterAutocomplete from './CharacterAutocomplete.vue'
@@ -322,7 +326,10 @@ import Album from './Album.vue'
 import VictoryModal from './VictoryModal.vue'
 import StatsModal from './StatsModal.vue'
 import HelpModal from './HelpModal.vue'
+import LangSwitcher from './LangSwitcher.vue'
 import { getCharacterIcon, getCharacterCard } from '../utils/characterImage'
+
+const { t } = useI18n()
 
 const gameStore = useGameStore()
 const showAlbum = ref(false)
@@ -379,14 +386,41 @@ function getResultClass(field: any): string {
 // Récupère le texte à afficher depuis l'objet {value, status}
 function getResultText(field: any): string {
   if (typeof field === 'object' && field !== null) {
-    return field.value || ''
+    return translateEnumValue(field.value || '')
   }
-  return String(field || '')
+  return translateEnumValue(String(field || ''))
+}
+
+// Traduit une valeur d'enum (ex: "HUMAN" → "Humain" / "Human")
+// Gère aussi les valeurs composées ("BLUE / WHITE") et les années avec flèches ("2016 ↑")
+function translateEnumValue(raw: string): string {
+  if (!raw) return ''
+
+  // Année avec flèche (ex: "2016 ↑") — ne pas traduire
+  if (/^\d{4}/.test(raw)) return raw
+
+  // Valeurs composées séparées par " / " (ex: "BLUE / WHITE")
+  if (raw.includes(' / ')) {
+    return raw.split(' / ').map(part => translateSingleEnum(part.trim())).join(' / ')
+  }
+
+  return translateSingleEnum(raw)
+}
+
+function translateSingleEnum(val: string): string {
+  // Chercher dans toutes les catégories d'enums
+  const categories = ['studio', 'species', 'role', 'gender', 'personality', 'color']
+  for (const cat of categories) {
+    const key = `enums.${cat}.${val}`
+    if (t(key) !== key) return t(key)
+  }
+  // Fallback : retourner la valeur originale
+  return val
 }
 
 // Réinitialise le jeu et efface le localStorage
 function resetGame() {
-  if (confirm('Voulez-vous vraiment réinitialiser le jeu ? Toutes vos tentatives seront perdues.')) {
+  if (confirm(t('reset.confirmMessage'))) {
     localStorage.clear()
     gameStore.$reset()
     window.location.reload()
@@ -435,17 +469,18 @@ function resetGame() {
 }
 
 .game-header {
+  position: relative;
   display: flex;
-  justify-content: space-between; /* Ecarte le titre et les boutons */
+  justify-content: center;
   align-items: center;
-  margin-bottom: 1rem; /* Réduit pour laisser la place à la marge de la barre de recherche */
+  margin-bottom: 1rem;
   padding: 0 1rem;
 }
 
 .disney-logo-wrapper {
   flex-grow: 1;
   text-align: center;
-  padding-left: 80px;
+  padding-right: 100px; /* compense le débordement visuel de Peter Pan + étoiles à droite */
 }
 
 .disney-logo {
@@ -453,7 +488,7 @@ function resetGame() {
   position: relative;
 }
 
-/* Image Peter Pan sous le titre, qui dépasse vers la droite */
+/* Image Peter Pan positionnée dans l'espace réservé */
 .peter-pan-img {
   position: absolute;
   bottom: -50px;
@@ -515,6 +550,10 @@ function resetGame() {
 
 /* Groupe de boutons d'action (Album + Reset + Streak) */
 .header-actions {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   gap: 12px;
   align-items: center;
@@ -667,18 +706,21 @@ function resetGame() {
 
 .category-cell {
   text-align: center;
-  color: #FCD34D; /* Brighter Gold */
-  font-weight: 800; /* Bolder font */
-  font-size: 14px; /* Slightly smaller for fit */
+  color: #FCD34D;
+  font-weight: 800;
+  font-size: 12.5px;
   font-family: 'Fredoka', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0 4px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Text shadow for legibility */
+  letter-spacing: 0.5px;
+  padding: 0 3px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100%;
+  line-height: 1.3;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .category-separator {
@@ -910,6 +952,10 @@ function resetGame() {
     width: 130px;
     right: -25px;
     bottom: -20px;
+  }
+  
+  .disney-logo {
+    padding-right: 60px;
   }
 
   .category-cell {

@@ -1,17 +1,20 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import GameBoard from '../components/GameBoard.vue'
+
+const { t } = useI18n()
 </script>
 
 <template>
   <GameBoard />
   
   <footer class="app-footer">
-    <p>Ce projet est indépendant et n'est ni affilié, ni soutenu par The Walt Disney Company. Tous les droits leur appartiennent.</p>
-    <p>Ce site peut être retiré à tout moment sur demande de The Walt Disney Company.</p>
+    <p>{{ t('footer.disclaimer') }}</p>
+    <p>{{ t('footer.removal') }}</p>
     <p>
-      <router-link to="/about" class="footer-link">À propos</router-link>
+      <router-link to="/about" class="footer-link">{{ t('footer.about') }}</router-link>
       <span class="footer-sep">·</span>
-      <router-link to="/confidentialite" class="footer-link">Politique de confidentialité</router-link>
+      <router-link to="/confidentialite" class="footer-link">{{ t('footer.privacy') }}</router-link>
     </p>
   </footer>
 </template>

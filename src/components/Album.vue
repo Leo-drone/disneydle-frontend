@@ -1,14 +1,14 @@
 <template>
   <div class="album-container">
     <div class="album-header">
-      <h2 class="album-title">Mon Album Disney</h2>
+      <h2 class="album-title">{{ t('album.title') }}</h2>
       
       <div class="album-controls">
         <select v-model="sortBy" class="album-sort-select">
-            <option value="name">Nom</option>
-            <option value="id">Numéro</option>
-            <option value="movie">Film/Saga</option>
-            <option value="unlocked">Débloqués</option>
+            <option value="name">{{ t('album.sortName') }}</option>
+            <option value="id">{{ t('album.sortId') }}</option>
+            <option value="movie">{{ t('album.sortMovie') }}</option>
+            <option value="unlocked">{{ t('album.sortUnlocked') }}</option>
         </select>
         <button @click="$emit('close')" class="close-album-btn">✕</button>
       </div>
@@ -17,7 +17,7 @@
     <!-- État Chargement (si la liste des persos n'est pas encore chargée) -->
     <div v-if="gameStore.allCharactersList.length === 0" class="empty-album">
       <div class="empty-icon">⏳</div>
-      <p>Chargement du catalogue...</p>
+      <p>{{ t('album.loading') }}</p>
     </div>
 
     <!-- Grille des cartes (Pokedex Mode) -->
@@ -70,7 +70,7 @@
              
              <div class="card-mini-body">
                 <!-- IMPORTANT: On n'affiche PAS le nom, mais on affiche maintenant le FILM! -->
-                <div class="card-mini-name locked-name">Inconnu</div>
+                <div class="card-mini-name locked-name">{{ t('album.locked') }}</div>
                 
                 <!-- Nouvelle info: Le film est affiché même si verrouillé (ou on peut le masquer si on veut full spoiler free) -->
                 <!-- Pour l'instant on l'affiche pour faciliter le repérage comme demandé "classer par saga" -->
@@ -86,9 +86,11 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useGameStore } from '../stores/game'
 import { getCharacterCard } from '../utils/characterImage'
 
+const { t } = useI18n()
 const gameStore = useGameStore()
 defineEmits(['close'])
 

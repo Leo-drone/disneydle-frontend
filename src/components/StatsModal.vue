@@ -4,7 +4,7 @@
       <div class="stats-modal">
         <!-- Header -->
         <div class="stats-header">
-          <h2 class="stats-title">Mes Statistiques</h2>
+          <h2 class="stats-title">{{ t('stats.title') }}</h2>
           <button class="stats-close-btn" @click="$emit('close')">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -14,29 +14,29 @@
         <div class="stats-kpis">
           <div class="kpi">
             <span class="kpi-number">{{ gameStore.personalStats.gamesPlayed }}</span>
-            <span class="kpi-label">Parties</span>
+            <span class="kpi-label">{{ t('stats.played') }}</span>
           </div>
           <div class="kpi">
             <span class="kpi-number">{{ gameStore.winRate }}%</span>
-            <span class="kpi-label">Victoires</span>
+            <span class="kpi-label">{{ t('stats.winRate') }}</span>
           </div>
           <div class="kpi">
             <span class="kpi-number">{{ gameStore.averageAttempts }}</span>
-            <span class="kpi-label">Moy. essais</span>
+            <span class="kpi-label">{{ t('stats.avgAttempts') }}</span>
           </div>
           <div class="kpi">
             <span class="kpi-number">{{ gameStore.streak.currentStreak }}</span>
-            <span class="kpi-label">Streak <img src="/streak-flame.svg" alt="" class="kpi-flame" width="12" height="12" /></span>
+            <span class="kpi-label">{{ t('stats.streak') }} <img src="/streak-flame.svg" alt="" class="kpi-flame" width="12" height="12" /></span>
           </div>
           <div class="kpi">
             <span class="kpi-number">{{ gameStore.streak.maxStreak }}</span>
-            <span class="kpi-label">Record <img src="/streak-flame.svg" alt="" class="kpi-flame" width="12" height="12" /></span>
+            <span class="kpi-label">{{ t('stats.record') }} <img src="/streak-flame.svg" alt="" class="kpi-flame" width="12" height="12" /></span>
           </div>
         </div>
 
         <!-- Distribution des essais -->
         <div class="distrib-section">
-          <h3 class="distrib-title">Distribution des essais</h3>
+          <h3 class="distrib-title">{{ t('stats.distribution') }}</h3>
           <div class="distribution">
             <div
               v-for="n in distributionKeys"
@@ -62,7 +62,7 @@
         <!-- Collection -->
         <div class="collection-stat">
           <span class="collection-text">
-            <strong>{{ gameStore.collection.length }}</strong> personnage{{ gameStore.collection.length > 1 ? 's' : '' }} collecté{{ gameStore.collection.length > 1 ? 's' : '' }}
+            {{ t('stats.collected', { count: gameStore.collection.length }, gameStore.collection.length) }}
           </span>
         </div>
       </div>
@@ -72,10 +72,12 @@
 
 <script setup lang="ts">
 import { useGameStore } from '../stores/game'
+import { useI18n } from 'vue-i18n'
 
 defineEmits(['close'])
 
 const gameStore = useGameStore()
+const { t } = useI18n()
 
 const distributionKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+']
 

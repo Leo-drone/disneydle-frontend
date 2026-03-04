@@ -1,0 +1,224 @@
+{
+  "common": {
+    "back": "← Retour au jeu",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "days": "jour | jours",
+    "attempts": "essai | essais"
+  },
+  "header": {
+    "streakRecord": "Record : {count} jour | Record : {count} jours",
+    "help": "Comment jouer",
+    "reset": "Nouvelle Partie",
+    "stats": "Statistiques",
+    "album": "Mon Album"
+  },
+  "hints": {
+    "title": "Indices",
+    "subtitle": "— cliquez pour révéler —",
+    "image": "Image",
+    "description": "Description",
+    "quote": "Citation",
+    "visualHint": "Indice visuel"
+  },
+  "search": {
+    "placeholder": "Proposez un personnage...",
+    "clear": "Effacer",
+    "noResult": "Aucun personnage trouvé..."
+  },
+  "columns": {
+    "character": "Personnage",
+    "movie": "Film",
+    "studio": "Studio",
+    "species": "Espèce",
+    "role": "Rôle",
+    "gender": "Genre",
+    "year": "Année du film",
+    "personality": "Trait de Personnalité",
+    "color": "Couleur(s) Caractéristique(s)"
+  },
+  "legend": {
+    "correct": "Correct",
+    "partial": "Partiellement Correct",
+    "incorrect": "Incorrect"
+  },
+  "reset": {
+    "confirmMessage": "Voulez-vous vraiment réinitialiser le jeu ? Toutes vos tentatives seront perdues."
+  },
+  "victory": {
+    "title": "VICTOIRE !",
+    "subtitle": "Tu as trouvé {name} en {count} essai ! | Tu as trouvé {name} en {count} essais !",
+    "summary": "Résumé",
+    "addedToAlbum": "Ajouté à ton album !",
+    "streakLabel": "jour de suite | jours de suite",
+    "countdownLabel": "Prochain personnage dans",
+    "share": "Partager mon score",
+    "shareCopied": "Résultat copié !",
+    "continue": "Continuer",
+    "shareText": "Disneydle #{id} — Trouvé en {count} essai ! | Disneydle #{id} — Trouvé en {count} essais !"
+  },
+  "stats": {
+    "title": "Mes Statistiques",
+    "played": "Parties",
+    "winRate": "Victoires",
+    "avgAttempts": "Moy. essais",
+    "streak": "Streak",
+    "record": "Record",
+    "distribution": "Distribution des essais",
+    "collected": "{count} personnage collecté | {count} personnages collectés"
+  },
+  "album": {
+    "title": "Mon Album Disney",
+    "sortName": "Nom",
+    "sortId": "Numéro",
+    "sortMovie": "Film/Saga",
+    "sortUnlocked": "Débloqués",
+    "loading": "Chargement du catalogue...",
+    "locked": "Inconnu",
+    "unknown": "???"
+  },
+  "help": {
+    "title": "Comment jouer",
+    "objectiveTitle": "Objectif",
+    "objectiveText": "Devinez le personnage Disney ou Pixar du jour. Tapez un nom dans la barre de recherche et validez pour soumettre votre proposition.",
+    "categoriesTitle": "Les categories",
+    "categoriesIntro": "Chaque proposition affiche une ligne de 9 colonnes. Chaque colonne compare votre personnage avec la solution :",
+    "colorTitle": "Code couleur",
+    "colorGreen": "Vert",
+    "colorGreenDesc": "La valeur est identique au personnage mystere.",
+    "colorOrange": "Orange",
+    "colorOrangeDesc": "Partiellement correct (ex : meme film mais pas le bon personnage, ou valeur proche pour l'annee).",
+    "colorRed": "Rouge",
+    "colorRedDesc": "Aucun rapport avec la reponse.",
+    "hintsTitle": "Indices bonus",
+    "hintsIntro": "Apres plusieurs tentatives, des indices supplementaires se debloquent automatiquement :",
+    "hintBlurred": "Image floue — une silhouette du personnage (apres 3 essais)",
+    "hintPhrase": "Phrase — une description de son role (apres 5 essais)",
+    "hintQuote": "Citation — une replique celebre (apres 7 essais)",
+    "hintsClickTip": "Cliquez sur la carte correspondante pour reveler l'indice.",
+    "streakTitle": "Streak et Collection",
+    "streakText": "Gagnez chaque jour pour maintenir votre streak (serie de victoires consecutives).",
+    "collectionText": "Chaque personnage trouve est ajoute a votre album de collection.",
+    "play": "C'est parti !"
+  },
+  "helpCategories": {
+    "character": "Le nom du personnage proposé (ex : Elsa, Woody, ...)",
+    "movie": "Le film dans lequel le personnage apparaît pour la première fois (ex : Le Roi Lion, Ratatouille, ...)",
+    "studio": "Le studio qui a réalisé le film (ex : Disney ou Pixar)",
+    "species": "L'espèce du personnage (ex : Humain, Animal, Créature magique, Objet : Objet/Robot/Émotion/Voiture de course, Monstre : Monstre/Alien)",
+    "role": "Le rôle du personnage (ex : Héros, Méchant, Acolyte)",
+    "gender": "Le genre du personnage (ex : Masculin, Féminin, Neutre)",
+    "year": "L'année de sortie du film au US. Une flèche indique plus ancien ou plus récent. (ex: 2016, 1999, ...)",
+    "personality": "La personnalité du personnage le décrivant le mieux (ex : Courageux, Malicieux, Loyal)",
+    "color": "La ou les couleurs principales définissant le personnage (ex : Bleu, Rouge, Jaune)"
+  },
+  "enums": {
+    "studio": {
+      "DISNEY": "Disney",
+      "PIXAR": "Pixar"
+    },
+    "species": {
+      "HUMAN": "Humain",
+      "ANIMAL": "Animal",
+      "MAGICAL_CREATURE": "Créature magique",
+      "MAGICAL CREATURE": "Créature magique",
+      "OBJECT": "Objet/Robot",
+      "MONSTER": "Monstre/Alien",
+      "OTHER": "Autre"
+    },
+    "role": {
+      "HERO": "Héros",
+      "VILLAIN": "Méchant",
+      "SIDEKICK": "Acolyte",
+      "OTHER": "Autre"
+    },
+    "gender": {
+      "MALE": "Masculin",
+      "FEMALE": "Féminin",
+      "NEUTRAL": "Neutre",
+      "OTHER": "Autre"
+    },
+    "personality": {
+      "JOYFUL": "Joyeux",
+      "BRAVE": "Courageux",
+      "ROMANTIC": "Romantique",
+      "FUNNY": "Drôle",
+      "AMBITIOUS": "Ambitieux",
+      "SHY": "Timide",
+      "ANGRY": "Colérique",
+      "SAD": "Mélancolique",
+      "NAIVE": "Naïf",
+      "SARCASTIC": "Sarcastique",
+      "LOYAL": "Loyal",
+      "COLD": "Froid",
+      "OPTIMISTIC": "Optimiste",
+      "OTHER": "Autre"
+    },
+    "color": {
+      "YELLOW": "Jaune",
+      "BLUE": "Bleu",
+      "RED": "Rouge",
+      "GREEN": "Vert",
+      "PURPLE": "Violet",
+      "PINK": "Rose",
+      "BROWN": "Marron",
+      "ORANGE": "Orange",
+      "WHITE": "Blanc",
+      "BLACK": "Noir",
+      "OTHER": "Autre"
+    }
+  },
+  "rarity": {
+    "legendary": "Légendaire",
+    "epic": "Épique",
+    "rare": "Rare",
+    "common": "Commun"
+  },
+  "footer": {
+    "disclaimer": "Ce projet est indépendant et n'est ni affilié, ni soutenu par The Walt Disney Company. Tous les droits leur appartiennent.",
+    "removal": "Ce site peut être retiré à tout moment sur demande de The Walt Disney Company.",
+    "about": "À propos",
+    "privacy": "Politique de confidentialité"
+  },
+  "about": {
+    "title": "À propos",
+    "whyTitle": "Pourquoi Disneydle ?",
+    "whyP1": "Fan de Disney et Pixar depuis toujours, j'ai grandi avec des films comme Ratatouille, Cars ou encore Le Livre de la Jungle. Un jour, en jouant à des jeux de type \"dle\" (Wordle, Pokedle...), je me suis dit : pourquoi il n'en existe pas un sur l'univers Disney ?",
+    "whyP2": "Alors je l'ai créé.",
+    "conceptTitle": "Le concept",
+    "conceptText": "Chaque jour, un nouveau personnage Disney ou Pixar est à deviner. Proposez des noms, analysez les indices et tentez de trouver le bon personnage en un minimum d'essais. Collectionnez-les tous dans votre album !",
+    "passionTitle": "Un projet fait avec passion",
+    "passionP1": "Disneydle est un projet personnel, gratuit et sans publicité. Il a été conçu pour être partagé avec tous ceux qui, comme moi, adorent l'univers Disney et aiment les petits défis quotidiens.",
+    "passionJoke": "En espérant qu'il vive assez longtemps pour que tout le monde en profite...",
+    "passionContact": "Si vous avez des suggestions, des idées de personnages à ajouter ou simplement envie de dire bonjour, n'hésitez pas à écrire à"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "lastUpdate": "Dernière mise à jour : 4 mars 2026",
+    "s1Title": "1. Présentation",
+    "s1Text": "Disneydle est un jeu en ligne gratuit où vous devinez un personnage Disney ou Pixar chaque jour. Ce projet est indépendant et n'est ni affilié, ni soutenu par The Walt Disney Company. Votre vie privée est importante : nous collectons le strict minimum pour faire fonctionner le jeu.",
+    "s2Title": "2. Ce qui reste sur votre appareil",
+    "s2Text": "Votre progression est sauvegardée directement dans votre navigateur. Ces informations ne quittent jamais votre appareil :",
+    "s2li1": "Vos tentatives et l'état de la partie en cours",
+    "s2li2": "Vos statistiques (parties jouées, victoires, nombre d'essais)",
+    "s2li3": "Votre série de victoires consécutives",
+    "s2li4": "Votre collection de personnages trouvés",
+    "s2Footer": "Vous pouvez les supprimer à tout moment en effaçant les données de navigation de votre navigateur.",
+    "s3Title": "3. Ce que nous savons de vous",
+    "s3Text": "Très peu de choses. Il n'y a aucun compte utilisateur sur Disneydle. Nous enregistrons uniquement des chiffres globaux et anonymes pour savoir combien de personnes jouent chaque jour et combien trouvent la bonne réponse. Ces chiffres ne permettent pas de vous identifier.",
+    "s4Title": "4. Publicité et pistage",
+    "s4Text": "Il n'y a aucune publicité sur Disneydle. Nous n'utilisons aucun outil de suivi (pas de Google Analytics, pas de trackers, pas de cookies publicitaires). Personne ne suit votre activité sur ce site.",
+    "s5Title": "5. Partage avec des tiers",
+    "s5Text": "Nous ne vendons, ne partageons et ne transmettons aucune information à qui que ce soit.",
+    "s6Title": "6. Sécurité",
+    "s6Text": "La connexion au site est sécurisée et chiffrée. Nous mettons en place des protections pour empêcher les abus et garantir le bon fonctionnement du jeu.",
+    "s7Title": "7. Vos droits",
+    "s7Text": "Comme nous ne stockons aucune donnée personnelle sur nos serveurs, il n'y a rien à demander, modifier ou supprimer de notre côté. Vos statistiques et votre collection sont entièrement sous votre contrôle dans votre navigateur.",
+    "s8Title": "8. Propriété intellectuelle",
+    "s8Text": "Disneydle est un projet indépendant à but non commercial. Tous les noms, images et personnages Disney et Pixar appartiennent à The Walt Disney Company. Ce site peut être retiré à tout moment sur demande de leur part.",
+    "s9Title": "9. Contact",
+    "s9Text": "Pour toute question, vous pouvez nous écrire à :"
+  }
+}

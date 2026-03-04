@@ -1,0 +1,224 @@
+{
+  "common": {
+    "back": "← Back to game",
+    "close": "Close",
+    "confirm": "Confirm",
+    "loading": "Loading...",
+    "error": "Error",
+    "days": "day | days",
+    "attempts": "attempt | attempts"
+  },
+  "header": {
+    "streakRecord": "Record: {count} day | Record: {count} days",
+    "help": "How to play",
+    "reset": "New Game",
+    "stats": "Statistics",
+    "album": "My Album"
+  },
+  "hints": {
+    "title": "Hints",
+    "subtitle": "— click to reveal —",
+    "image": "Image",
+    "description": "Description",
+    "quote": "Quote",
+    "visualHint": "Visual hint"
+  },
+  "search": {
+    "placeholder": "Guess a character...",
+    "clear": "Clear",
+    "noResult": "No character found..."
+  },
+  "columns": {
+    "character": "Character",
+    "movie": "Movie",
+    "studio": "Studio",
+    "species": "Species",
+    "role": "Role",
+    "gender": "Gender",
+    "year": "Movie Year",
+    "personality": "Personality Trait",
+    "color": "Main Color(s)"
+  },
+  "legend": {
+    "correct": "Correct",
+    "partial": "Partially Correct",
+    "incorrect": "Incorrect"
+  },
+  "reset": {
+    "confirmMessage": "Do you really want to reset the game? All your attempts will be lost."
+  },
+  "victory": {
+    "title": "VICTORY!",
+    "subtitle": "You found {name} in {count} attempt! | You found {name} in {count} attempts!",
+    "summary": "Summary",
+    "addedToAlbum": "Added to your album!",
+    "streakLabel": "day in a row | days in a row",
+    "countdownLabel": "Next character in",
+    "share": "Share my score",
+    "shareCopied": "Result copied!",
+    "continue": "Continue",
+    "shareText": "Disneydle #{id} — Found in {count} attempt! | Disneydle #{id} — Found in {count} attempts!"
+  },
+  "stats": {
+    "title": "My Statistics",
+    "played": "Played",
+    "winRate": "Win %",
+    "avgAttempts": "Avg. attempts",
+    "streak": "Streak",
+    "record": "Record",
+    "distribution": "Attempts distribution",
+    "collected": "{count} character collected | {count} characters collected"
+  },
+  "album": {
+    "title": "My Disney Album",
+    "sortName": "Name",
+    "sortId": "Number",
+    "sortMovie": "Movie/Saga",
+    "sortUnlocked": "Unlocked",
+    "loading": "Loading catalogue...",
+    "locked": "Unknown",
+    "unknown": "???"
+  },
+  "help": {
+    "title": "How to play",
+    "objectiveTitle": "Objective",
+    "objectiveText": "Guess the Disney or Pixar character of the day. Type a name in the search bar and submit your guess.",
+    "categoriesTitle": "Categories",
+    "categoriesIntro": "Each guess displays a row of 9 columns. Each column compares your character with the answer:",
+    "colorTitle": "Color code",
+    "colorGreen": "Green",
+    "colorGreenDesc": "The value matches the mystery character.",
+    "colorOrange": "Orange",
+    "colorOrangeDesc": "Partially correct (e.g., same movie but wrong character, or close value for the year).",
+    "colorRed": "Red",
+    "colorRedDesc": "No match with the answer.",
+    "hintsTitle": "Bonus hints",
+    "hintsIntro": "After several attempts, bonus hints unlock automatically:",
+    "hintBlurred": "Blurred image — a silhouette of the character (after 3 attempts)",
+    "hintPhrase": "Phrase — a description of their role (after 5 attempts)",
+    "hintQuote": "Quote — a famous line (after 7 attempts)",
+    "hintsClickTip": "Click on the corresponding card to reveal the hint.",
+    "streakTitle": "Streak & Collection",
+    "streakText": "Win every day to maintain your streak (consecutive victories).",
+    "collectionText": "Every character found is added to your collection album.",
+    "play": "Let's go!"
+  },
+  "helpCategories": {
+    "character": "The guessed character's name (e.g., Elsa, Woody, ...)",
+    "movie": "The movie in which the character first appears (e.g., The Lion King, Ratatouille, ...)",
+    "studio": "The studio that produced the movie (e.g., Disney or Pixar)",
+    "species": "The character's species (e.g., Human, Animal, Magical Creature, Object/Robot, Monster/Alien)",
+    "role": "The character's role (e.g., Hero, Villain, Sidekick)",
+    "gender": "The character's gender (e.g., Male, Female, Neutral)",
+    "year": "The movie's US release year. An arrow indicates older or newer. (e.g., 2016, 1999, ...)",
+    "personality": "The character's main personality trait (e.g., Brave, Funny, Loyal)",
+    "color": "The character's main defining color(s) (e.g., Blue, Red, Yellow)"
+  },
+  "enums": {
+    "studio": {
+      "DISNEY": "Disney",
+      "PIXAR": "Pixar"
+    },
+    "species": {
+      "HUMAN": "Human",
+      "ANIMAL": "Animal",
+      "MAGICAL_CREATURE": "Magical Creature",
+      "MAGICAL CREATURE": "Magical Creature",
+      "OBJECT": "Object/Robot",
+      "MONSTER": "Monster/Alien",
+      "OTHER": "Other"
+    },
+    "role": {
+      "HERO": "Hero",
+      "VILLAIN": "Villain",
+      "SIDEKICK": "Sidekick",
+      "OTHER": "Other"
+    },
+    "gender": {
+      "MALE": "Male",
+      "FEMALE": "Female",
+      "NEUTRAL": "Neutral",
+      "OTHER": "Other"
+    },
+    "personality": {
+      "JOYFUL": "Joyful",
+      "BRAVE": "Brave",
+      "ROMANTIC": "Romantic",
+      "FUNNY": "Funny",
+      "AMBITIOUS": "Ambitious",
+      "SHY": "Shy",
+      "ANGRY": "Angry",
+      "SAD": "Melancholic",
+      "NAIVE": "Naive",
+      "SARCASTIC": "Sarcastic",
+      "LOYAL": "Loyal",
+      "COLD": "Cold",
+      "OPTIMISTIC": "Optimistic",
+      "OTHER": "Other"
+    },
+    "color": {
+      "YELLOW": "Yellow",
+      "BLUE": "Blue",
+      "RED": "Red",
+      "GREEN": "Green",
+      "PURPLE": "Purple",
+      "PINK": "Pink",
+      "BROWN": "Brown",
+      "ORANGE": "Orange",
+      "WHITE": "White",
+      "BLACK": "Black",
+      "OTHER": "Other"
+    }
+  },
+  "rarity": {
+    "legendary": "Legendary",
+    "epic": "Epic",
+    "rare": "Rare",
+    "common": "Common"
+  },
+  "footer": {
+    "disclaimer": "This project is independent and is not affiliated with or endorsed by The Walt Disney Company. All rights belong to them.",
+    "removal": "This site may be taken down at any time upon request from The Walt Disney Company.",
+    "about": "About",
+    "privacy": "Privacy Policy"
+  },
+  "about": {
+    "title": "About",
+    "whyTitle": "Why Disneydle?",
+    "whyP1": "A lifelong Disney and Pixar fan, I grew up with movies like Ratatouille, Cars, and The Jungle Book. One day, while playing \"dle\" games (Wordle, Pokedle...), I thought: why isn't there one about the Disney universe?",
+    "whyP2": "So I made one.",
+    "conceptTitle": "The concept",
+    "conceptText": "Every day, a new Disney or Pixar character is to be guessed. Submit names, analyze the clues, and try to find the right character in as few attempts as possible. Collect them all in your album!",
+    "passionTitle": "A passion project",
+    "passionP1": "Disneydle is a personal, free, and ad-free project. It was made to be shared with everyone who, like me, loves the Disney universe and enjoys small daily challenges.",
+    "passionJoke": "Hoping it lives long enough for everyone to enjoy it...",
+    "passionContact": "If you have suggestions, character ideas, or just want to say hi, feel free to write to"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdate": "Last updated: March 4, 2026",
+    "s1Title": "1. Introduction",
+    "s1Text": "Disneydle is a free online game where you guess a Disney or Pixar character every day. This project is independent and is not affiliated with or endorsed by The Walt Disney Company. Your privacy matters: we collect the bare minimum to keep the game running.",
+    "s2Title": "2. What stays on your device",
+    "s2Text": "Your progress is saved directly in your browser. This information never leaves your device:",
+    "s2li1": "Your attempts and the current game state",
+    "s2li2": "Your statistics (games played, wins, number of attempts)",
+    "s2li3": "Your consecutive wins streak",
+    "s2li4": "Your collection of discovered characters",
+    "s2Footer": "You can delete them at any time by clearing your browser data.",
+    "s3Title": "3. What we know about you",
+    "s3Text": "Very little. There are no user accounts on Disneydle. We only record anonymous aggregate numbers to know how many people play each day and how many find the right answer. These numbers cannot identify you.",
+    "s4Title": "4. Advertising and tracking",
+    "s4Text": "There is no advertising on Disneydle. We use no tracking tools (no Google Analytics, no trackers, no advertising cookies). Nobody tracks your activity on this site.",
+    "s5Title": "5. Sharing with third parties",
+    "s5Text": "We do not sell, share, or transmit any information to anyone.",
+    "s6Title": "6. Security",
+    "s6Text": "The connection to the site is secure and encrypted. We implement protections to prevent abuse and ensure the game works properly.",
+    "s7Title": "7. Your rights",
+    "s7Text": "Since we do not store any personal data on our servers, there is nothing to request, modify, or delete on our end. Your statistics and collection are entirely under your control in your browser.",
+    "s8Title": "8. Intellectual property",
+    "s8Text": "Disneydle is an independent, non-commercial project. All Disney and Pixar names, images, and characters belong to The Walt Disney Company. This site may be taken down at any time upon their request.",
+    "s9Title": "9. Contact",
+    "s9Text": "For any questions, you can write to us at:"
+  }
+}

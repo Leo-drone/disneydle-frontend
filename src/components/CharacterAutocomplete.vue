@@ -15,7 +15,7 @@
         @keydown.up.prevent="navigateUp"
         @keydown.esc="clearSearch"
         type="text"
-        placeholder="Proposez un personnage..."
+        :placeholder="t('search.placeholder')"
         :disabled="props.disabled"
         ref="searchInput"
         class="magic-input"
@@ -60,7 +60,7 @@
       </ul>
        <!-- Message "Aucun résultat" -->
        <div v-else-if="isOpen && searchQuery.length >= 2 && filteredList.length === 0" class="no-results">
-          <span class="sad-mickey">✨</span> Aucun personnage trouvé...
+          <span class="sad-mickey">✨</span> {{ t('search.noResult') }}
        </div>
     </transition>
   </div>
@@ -68,9 +68,12 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useGameStore } from '../stores/game'
 import { apiService, type Character } from '../services/api' 
 import { getCharacterIcon } from '../utils/characterImage'
+
+const { t } = useI18n()
 
 // Props et Emits
 const props = defineProps<{ disabled?: boolean }>()

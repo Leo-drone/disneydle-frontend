@@ -85,13 +85,13 @@
        <div class="header-actions">
         <!-- Streak -->
         <div class="streak-badge" :class="{ 'streak-active': gameStore.streak.currentStreak > 0 }" :title="`Record : ${gameStore.streak.maxStreak} jour${gameStore.streak.maxStreak > 1 ? 's' : ''}`">
-          <svg class="streak-flame" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 105" fill="currentColor" stroke="none">
-            <circle cx="22" cy="22" r="22"/>
-            <circle cx="78" cy="22" r="22"/>
-            <circle cx="50" cy="62" r="38"/>
-          </svg>
+          <img src="/streak-flame.svg" alt="Streak" class="streak-flame" width="22" height="22" />
           <span class="streak-count">{{ gameStore.streak.currentStreak }}</span>
         </div>
+        <!-- Bouton Aide -->
+        <button @click="showHelp = true" class="icon-btn tooltipped" aria-label="Aide" title="Comment jouer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </button>
         <!-- Bouton Reset déplacé ici aussi pour regrouper les actions -->
         <button @click="resetGame" class="icon-btn tooltipped" aria-label="Nouvelle Partie" title="Nouvelle Partie">
            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
@@ -203,9 +203,9 @@
         <div class="category-cell">Espèce</div>
         <div class="category-cell">Rôle</div>
         <div class="category-cell">Genre</div>
-        <div class="category-cell">Année</div>
-        <div class="category-cell">Personnalité</div>
-        <div class="category-cell">Couleur</div>
+        <div class="category-cell">Année du film</div>
+        <div class="category-cell">Trait de Personnalité</div>
+        <div class="category-cell">Couleur(s) Caractéristique(s)</div>
       </div>
       <div class="category-separator"></div>
       
@@ -307,6 +307,9 @@
 
     <!-- Stats Modal -->
     <StatsModal v-if="showStats" @close="showStats = false" />
+
+    <!-- Help Modal -->
+    <HelpModal v-if="showHelp" @close="showHelp = false" />
   </div>
 </template>
 
@@ -318,12 +321,14 @@ import CharacterAutocomplete from './CharacterAutocomplete.vue'
 import Album from './Album.vue'
 import VictoryModal from './VictoryModal.vue'
 import StatsModal from './StatsModal.vue'
+import HelpModal from './HelpModal.vue'
 import { getCharacterIcon, getCharacterCard } from '../utils/characterImage'
 
 const gameStore = useGameStore()
 const showAlbum = ref(false)
 const showStats = ref(false)
 const showVictoryModal = ref(false) // Remplacement de showVictoryPopup
+const showHelp = ref(!localStorage.getItem('disneydle_help_seen'))
 
 // Computed pour savoir si on a au moins un indice disponible (pas forcément révélé)
 const hasAnyHint = computed(() => {
@@ -536,14 +541,13 @@ function resetGame() {
 }
 
 .streak-flame {
-  color: #fbbf24;
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
 .streak-badge:not(.streak-active) .streak-flame {
-  color: #64748b;
-  opacity: 0.5;
+  opacity: 0.3;
+  filter: grayscale(1);
 }
 
 .streak-count {
@@ -652,6 +656,7 @@ function resetGame() {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 8px; 
+  align-items: center;
   background: rgba(15, 23, 42, 0.8); /* Fond sombre transparent */
   backdrop-filter: blur(10px);
   padding: 24px 16px; /* Plus d'espace */
@@ -670,6 +675,10 @@ function resetGame() {
   letter-spacing: 1px;
   padding: 0 4px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Text shadow for legibility */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
 }
 
 .category-separator {

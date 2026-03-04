@@ -4,7 +4,7 @@
       <div class="stats-modal">
         <!-- Header -->
         <div class="stats-header">
-          <h2 class="stats-title">📊 Mes Statistiques</h2>
+          <h2 class="stats-title">Mes Statistiques</h2>
           <button class="stats-close-btn" @click="$emit('close')">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -26,11 +26,11 @@
           </div>
           <div class="kpi">
             <span class="kpi-number">{{ gameStore.streak.currentStreak }}</span>
-            <span class="kpi-label">Streak</span>
+            <span class="kpi-label">Streak <img src="/streak-flame.svg" alt="" class="kpi-flame" width="12" height="12" /></span>
           </div>
           <div class="kpi">
             <span class="kpi-number">{{ gameStore.streak.maxStreak }}</span>
-            <span class="kpi-label">Record 🔥</span>
+            <span class="kpi-label">Record <img src="/streak-flame.svg" alt="" class="kpi-flame" width="12" height="12" /></span>
           </div>
         </div>
 
@@ -61,7 +61,6 @@
 
         <!-- Collection -->
         <div class="collection-stat">
-          <span class="collection-icon">🃏</span>
           <span class="collection-text">
             <strong>{{ gameStore.collection.length }}</strong> personnage{{ gameStore.collection.length > 1 ? 's' : '' }} collecté{{ gameStore.collection.length > 1 ? 's' : '' }}
           </span>
@@ -192,6 +191,14 @@ function isLastGame(key: string): boolean {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.kpi-flame {
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 /* --- Distribution --- */
